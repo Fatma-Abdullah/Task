@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sechedule a meeting</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+
+<body>
+    <div class="navbar navbar-default navbar-fixed-top dash-header">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a href="/home"><img src="/images/logo.png" class="dash-logo" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav nav-menu navbar-nav">
+                    <li><a href="/Home/Dashboard">Dashboard</a></li>
+                    <li><a href="/Meeting/create">Schedule a meeting</a></li>
+                    <li><a href="/manage/accountsetting">Account setting</a></li>
+
+                </ul>
+                <form action="/Account/LogOff" class="navbar-right" id="logoutForm" method="post"><input
+                        name="__RequestVerificationToken" type="hidden"
+                        value="RZDqYMVMVwagUiUUMUt8EE7hkzlr2R1QWv8wGkbx0iFCqVd5Rsg6KpjPHi1J1XC9udvv0W1KyjsBZ1WDr1-RzmAQHfF90GIJHs-DyXoWh-_ZRCisxayHnWXGLwChvRrSTKeTP-zfF7Lb8UAehcvUBQ2" />
+                    <ul class="nav navbar-nav nav-menu navbar-right">
+                        <li id="userNameLi">
+
+                            <a href="/Manage/AccountSetting" title="Manage">Hello Haytham</a>
+                        </li>
+                        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log out</a></li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- ----content---- -->
+    <div class="body-content">
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="display-3">Meeting</h1>
+            </div>
+        </div>
+        <!-- ----form---- -->
+        <div class="container">
+            <form action="/Meeting/Create" id="CreateMeetingForm" method="post"><input name="__RequestVerificationToken"
+                    type="hidden"
+                    value="P3FjVdkseTevFiSL6db0cHSdaQOCmcve0Jb9patAKO6zeBgUUMV4fX91NmRSqkZSe0bX8ZgczuZS2Pmb7uW6Au1KBTC118Ax5ksUbB-nXC4zc7M1u7KtOAcCjIwM-LU7Is3V-K9poCvuLVFqGXCv5w2" />
+                <div class="form-horizontal row ">
+                    <div class="table-wrapper">
+                        <div class="table-title">
+
+                            <h2>Schedule a meeting</h2>
+
+                        </div>
+                        <div class="table-body">
+                            <div class="col-md-12 col-sm-12">
+                                <div class="col-md-7">
+                                    <div class="box-cont">
+                                        <div class="validation-summary-valid text-danger" data-valmsg-summary="true">
+                                            <ul>
+                                                <li style="display:none"></li>
+                                            </ul>
+                                        </div>
+                                        <input Value="0" data-val="true"
+                                            data-val-number="The field MeetingId must be a number."
+                                            data-val-required="The MeetingId field is required." id="MeetingId"
+                                            name="MeetingId" type="hidden" value="" /> <input data-val="true"
+                                            data-val-required="Duration type is required" id="DurationType"
+                                            name="DurationType" type="hidden" value="" />
+                                        <input data-val="true" data-val-number="The field Duration must be a number."
+                                            data-val-range="Duration value must be at least equal 1"
+                                            data-val-range-max="2147483647" data-val-range-min="1"
+                                            data-val-required="Duration is required" id="Duration" name="Duration"
+                                            type="hidden" value="" />
+
+                                        <div class="form-group">
+                                            <div class="col-md-4 col-sm-12">
+                                                <label for="username">Meeting Name</label>
+                                            </div>
+                                            <div class="col-md-8 col-sm-12">
+                                                <input class="form-control" data-val="true"
+                                                    data-val-required="Event name is required" id="MeetingName"
+                                                    name="MeetingName" placeholder="Meeting Name" type="text"
+                                                    value="" />
+
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-md-4 col-sm-12"><label>Meeting Date</label></div>
+                                            <div class="col-md-8 col-sm-12">
+                                                <div class="input-group " id='datetimepicker1'>
+                                                    <input class="form-control" data-val="true"
+                                                        data-val-date="The field MeetingDate must be a date."
+                                                        data-val-required="Event date is required" id="MeetingDate"
+                                                        name="MeetingDate" readonly="readonly" type="text" value="" />
+                                                    <label class="input-group-addon" for="MeetingDate"><i
+                                                            class="fas fa-calendar-alt"></i></label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <div class="col-md-4 col-sm-12"><label style="display:block">Start
+                                                    Time</label></div>
+                                            <div class="col-md-8 col-sm-12">
+                                                <div class="row">
+                                                    <div class=" col-sm-6">
+                                                        <div class="input-group">
+                                                            <input class="form-control" data-val="true"
+                                                                data-val-required="Start time is required"
+                                                                id="StartTime" name="StartTime" style="height:35px"
+                                                                type="text" value="" />
+                                                            <label class="input-group-addon" for="StartTime"><i
+                                                                    class="far fa-clock"></i></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <select class="form-control" id="midSelect">
+                                                            <option value="am">AM</option>
+                                                            <option value="pm">PM</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-4 col-sm-12"> <label>Meeting Duration
+                                                    &nbsp;&nbsp;</label></div>
+                                            <div class="col-md-8 col-sm-12">
+                                                <div class="input-group" style="width:100%">
+
+                                                    <div class="hour select-editable row">
+                                                        <div class="col-sm-5">
+                                                            <select class="form-control" style="height:37px;"
+                                                                onchange="this.nextElementSibling.value=this.value">
+                                                                <option value="0">0</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                                <option value="5">5</option>
+                                                                <option value="6">6</option>
+                                                                <option value="7">7</option>
+                                                                <option value="8">8</option>
+                                                                <option value="9">9</option>
+                                                                <option value="10">10</option>
+                                                                <option value="11">11</option>
+                                                                <option value="12">12</option>
+                                                                <option value="13">13</option>
+                                                                <option value="14">14</option>
+                                                                <option value="15">15</option>
+                                                                <option value="16">16</option>
+                                                                <option value="17">17</option>
+                                                                <option value="18">18</option>
+                                                                <option value="19">19</option>
+                                                                <option value="20">20</option>
+                                                                <option value="21">21</option>
+                                                                <option value="22">22</option>
+                                                                <option value="23">23</option>
+                                                            </select>
+                                                            <input type="text" id="durationHour" name="format" value="0"
+                                                                autocomplete="off" maxlength="2" />
+                                                        </div>
+                                                        <div class="col-sm-1">
+                                                            <span>hr</span></div>
+                                                        <div class="col-sm-5">
+
+                                                            <select class="form-control" style="height:37px;"
+                                                                onchange="this.nextElementSibling.value=this.value">
+                                                                <option value="0">0</option>
+                                                                <option value="10">10</option>
+                                                                <option value="20">20</option>
+                                                                <option value="30">30</option>
+                                                                <option value="40">40</option>
+                                                                <option value="50">50</option>
+                                                                <option value="60">60</option>
+                                                            </select>
+                                                            <input type="text" class="durationSelect" name="format"
+                                                                value="0" autocomplete="off" maxlength="2" />
+                                                        </div>
+                                                        <div class="col-sm-1">
+                                                            <span>min</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="form-group" id="meetingGuestsDiv">
+                                            <label for="username" class="col-md-4 col-sm-12"> Add Guests </label>
+
+                                            <div class="col-md-8 col-sm-12">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-sm-12">
+                                                        <input type="text" class="form-control" id="guestNameTxt"
+                                                            placeholder="Guest Name" />
+                                                    </div>
+
+                                                    <div class="col-md-12 col-sm-12 mt-5">
+                                                        <input type="text" class="form-control" id="guestEmailTxt"
+                                                            placeholder="Guest Email" />
+                                                    </div>
+                                                </div>
+                                                <div class="add-user" style="float:right; margin-left:5px;">
+                                                    <a href="" class="btn btn-default" id="removeAllBtn">Clear all</a>
+                                                </div>
+                                                <div class="add-user text-right" style="float:right;">
+                                                    <a href="" class="btn btn-primary" id="addGuestBtn">Add Guest</a>
+                                                </div>
+                                            </div>
+                                            <label for="username" class="col-md-4 col-sm-12"> </label>
+                                            <div class="col-md-8 col-sm-12" id="guestsDiv">
+                                            </div>
+                                        </div>
+                                        <input id="TimeZone" name="TimeZone" type="hidden" value="" />
+
+                                        <div class="form-group submitDiv">
+                                            <div class="col-md-4 col-sm-12"></div>
+                                            <div class="col-md-8 col-sm-12">
+                                                <div class="row">
+                                                    <div class="col-sm-9">
+                                                        <button type="submit" class="btn btn-primary">
+                                                            <iclass='fas fa-pen-alt'></i> Create
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <a class="btn btn-danger" onclick="clearForm()">
+                                                            <i class="fa fa-eraser"></i> Clear</a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+
+                    <input data-val="true" data-val-required="The MembershipTypeEnum field is required." id="UserType"
+                        name="UserType" type="hidden" value="Individuals_Plus_Groups" />
+                </div>
+            </form>
+        </div>
+        <!-- ----footer---- -->
+        <footer class="footer-area footer-bottom fixed-bottom">
+            <p class="footer-text m-0">
+                Copyright &copy;
+                <script>
+                    document.write(new Date().getFullYear());
+                </script> All rights reserved | This website was made with love <i class="far fa-heart"></i>
+                by
+                <a href="http://intelsoftsystems.com/" target="_blank">intelsoftsystems</a>
+            </p>
+        </footer>
+    </div>
+    <div class="ajax-loader"></div>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        $(document).on({
+            ajaxStart: function () { $('body').addClass("ajax-loading"); },
+            ajaxStop: function () { $('body').removeClass("ajax-loading"); }
+        });
+    </script>
+
+</body>
+
+</html>

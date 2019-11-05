@@ -1,0 +1,87 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.navbar {
+  background: #343A40;
+}
+
+.navbar img {
+  margin-top: 1em;
+  width: 12em;
+}
+
+.navbar .navbar-nav li a {
+  color: white;
+  line-height: 3;
+}
+
+.navbar .navbar-nav li a:hover {
+  color: #4889cf;
+  background: none;
+  transition: ease-in 0.3s;
+}
+
+.jumbotron {
+  margin-top: 3em;
+}
+
+.select-editable {
+  position: relative;
+}
+
+.select-editable select {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-size: 14px;
+  width: 75%;
+  height: 37px;
+  margin: 0;
+}
+
+.select-editable input {
+  position: absolute;
+  top: 3px;
+  left: 10px;
+  width: 40%;
+  height: 92%;
+  padding: 4px;
+  border: none;
+}
+
+.select-editable input:focus {
+  outline: none;
+}
+
+.hour span, .min span {
+  float: right;
+  height: 35px;
+  line-height: 35px;
+  display: inline-block;
+  width: 30px;
+  text-align: center;
+}
+
+#meetingGuestsDiv #guestNameTxt, #meetingGuestsDiv #guestEmailTxt {
+  margin: 0.3em 0;
+}
+
+.submitDiv button, .submitDiv a {
+  width: 100%;
+}
+
+footer {
+  color: #e7e6e6;
+  background: #343A40;
+  bottom: 0;
+  padding: 0.5em;
+  margin-top: 1em;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+  line-height: 2;
+}
